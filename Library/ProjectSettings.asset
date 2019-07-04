@@ -709,12 +709,12 @@ PlayerSettings:
     Game_Performance: 0
     Hub: 0
     Purchasing: 0
-    UNet: 0
+    UNet: 1
     Unity_Ads: 0
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
   cloudProjectId: ff97f384-f464-494f-995a-673acadcc297
-  projectName: 
+  projectName: Production-Practice
   organizationId: wechat_os_qy0yef14mqvskxmhsohzl0atu
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
