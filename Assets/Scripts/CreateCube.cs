@@ -19,7 +19,7 @@ public class CreateCube : MonoBehaviour {
         //确定摄像机的位置
         CreateCube.cameraZPosition = this.gameObject.transform.position.z;
         //初始化生成一个物体
-        Instantiate(cube, new Vector3(Random.Range(0f, 2f), Random.Range(0f, 1f), cubeZPosition), Quaternion.identity);
+        Instantiate(cube, new Vector3(Random.Range(-1.5f, -1f), Random.Range(0.5f, 1.5f), cubeZPosition), Quaternion.identity);
         GLOBAL_PARA.Game.ClearRecord();
         GLOBAL_PARA.Game.CubeSendRecord += 1;
     }
