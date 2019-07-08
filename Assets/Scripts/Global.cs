@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Newtonsoft.Json;
 
 namespace GLOBAL_PARA
 {
@@ -56,6 +57,28 @@ namespace GLOBAL_PARA
             RIGHT = 3,
             ANY = 4,
         };
+
+    }
+ 
+    public class CubePoint
+    {
+        public string cubeType { get; set; }//对应预制体前面的编号
+        public float time { get; set; }//在游戏出现的时间点
+        public float x { get; set; }
+        public float y { get; set; }
+        public float z { get; set; }
+        public CubePoint()
+        {
+
+        }
+        public CubePoint(string cubeType, float time,float x,float y,float z)
+        {
+            this.cubeType = cubeType;
+            this.time = time;
+            this.x = x;
+            this.y = y;
+            this.z = z;
+        }
     }
     public class SaberPara
     {
