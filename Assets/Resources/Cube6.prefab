@@ -109,4 +109,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TypeOfCube: 0
-  HeatPoint: 1
+  HeatPoint: 2
