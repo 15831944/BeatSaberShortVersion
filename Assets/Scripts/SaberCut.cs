@@ -28,7 +28,5 @@ public class SaberCut : MonoBehaviour {
 
         Destroy(pieces[0], 1);
         Destroy(pieces[1], 1);
-
-        Instantiate(victim, victim.transform.position, Quaternion.identity);
     }
 }
