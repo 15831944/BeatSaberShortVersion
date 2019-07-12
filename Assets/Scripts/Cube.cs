@@ -8,18 +8,20 @@ public class Cube : MonoBehaviour {
     /// 物体运动的速度，V = S/T；s就是方块产生的XY平面距离摄像机所在XY平面的距离，t是根据歌曲的BPM算出的多少秒一拍，目前是使用了1/2的BPM
     /// </summary>
     public static float speed = -2.9411f;
-    public GLOBAL_PARA.CubePara.TypeOfCube TypeOfCube;
-    public GLOBAL_PARA.CubePara.HeatPoint HeatPoint;
+    public GLOBAL_PARA.TypeOfColor color;
+    public GLOBAL_PARA.HitPoint hitPoint;
+
 	void Start () {
         //speed = (CreateCube.cameraZPosition - CreateCube.cubeZPosition) / CreateCube.halfBeat;
     }
+
 	void Update () {
-        //判断物体是不是过了视界了，过了就销毁
-        if (this.gameObject.transform.position.z <= cameraZPosition)
-        {
-            Destroy(gameObject);
-        }
-        //让物体进行移动，摄像机在后面，前面要加个负号
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        ////判断物体是不是过了视界了，过了就销毁
+        //if (this.gameObject.transform.position.z <= cameraZPosition)
+        //{
+        //    Destroy(gameObject);
+        //}
+        ////让物体进行移动，摄像机在后面，前面要加个负号
+        //transform.Translate(Vector3.forward * Time.deltaTime * speed);
 	}
 }

@@ -102,7 +102,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!65 &65530359336487234
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -126,8 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4066216d7886ca4b948c04d216b5cdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TypeOfCube: 1
-  HeatPoint: 2
+  color: 0
+  hitPoint: 2
 --- !u!114 &114140863762955092
 MonoBehaviour:
   m_ObjectHideFlags: 1
