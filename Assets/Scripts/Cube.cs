@@ -7,11 +7,11 @@ public class Cube : MonoBehaviour {
     /// <summary>
     /// 物体运动的速度，V = S/T；s就是方块产生的XY平面距离摄像机所在XY平面的距离，t是根据歌曲的BPM算出的多少秒一拍，目前是使用了1/2的BPM
     /// </summary>
-    public static float speed = 1f;
+    public static float speed = -2.9411f;
     public GLOBAL_PARA.CubePara.TypeOfCube TypeOfCube;
     public GLOBAL_PARA.CubePara.HeatPoint HeatPoint;
 	void Start () {
-        speed = (CreateCube.cameraZPosition - CreateCube.cubeZPosition) / CreateCube.halfBeat;
+        //speed = (CreateCube.cameraZPosition - CreateCube.cubeZPosition) / CreateCube.halfBeat;
     }
 	void Update () {
         //判断物体是不是过了视界了，过了就销毁

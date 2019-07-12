@@ -8,18 +8,26 @@ using UnityEngine;
 public class SaberCut : MonoBehaviour {
 
     public Material capMaterial;
+    public GameObject endPoint;
+
+    private Vector3 lastPosition;
 
     // Use this for initialization
     void Start() {
 
     }
 
+    private void Update()
+    {
+        lastPosition = endPoint.transform.position;
+    }
+
     void OnCollisionEnter(Collision col)
     {
         //当Collision/Rigidbody触发另一个时调用
         GameObject victim = col.collider.gameObject;
-
-        GameObject[] pieces = BLINDED_AM_ME.MeshCut.Cut(victim, col.contacts[0].point, new Vector3( col.contacts[0].normal.y, col.contacts[0].normal.x, 0), capMaterial);
+        Vector3 direction = endPoint.transform.position - lastPosition;
+        GameObject[] pieces = BLINDED_AM_ME.MeshCut.Cut(victim, col.contacts[0].point, new Vector3( direction.y, -direction.x, 0), capMaterial);
 
         if (!pieces[1].GetComponent<Rigidbody>())
             pieces[1].AddComponent<Rigidbody>();
