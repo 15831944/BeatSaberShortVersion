@@ -6,6 +6,8 @@ using UnityEditor;
 using Newtonsoft.Json;
 using System.IO;
 using Newtonsoft.Json.Linq;
+using System;
+using Random = UnityEngine.Random;
 
 public class CreateCube : MonoBehaviour {
     public static float cameraZPosition = 1f;//存放摄像机位置的Z坐标，用于配合计算速度
@@ -34,7 +36,7 @@ public class CreateCube : MonoBehaviour {
         ////将产生的信息加入列表
         //GLOBAL_PARA.CubePoint cubePoint = new GLOBAL_PARA.CubePoint(GLOBAL_PARA.CubePara.TypeOfCube.BULE,GLOBAL_PARA.CubePara.HeatPoint.ANY,Time.time,start.x,start.y,start.z);
         //cubePointsList.Add(cubePoint);
-        //加载各个队列
+        //加载各个队列，生成的时候把以下两行注释掉
         this.cubePointsList = LoadAllCubePoints();
         initQueue(cubePointsList);
     }
@@ -42,31 +44,56 @@ public class CreateCube : MonoBehaviour {
 	void Update () {
         //deltaTime是两帧之间的间隔时间，累计超过一定的时间后产生新的方块
         timerOne += Time.deltaTime;
-
         //音乐结束后的处理，当作游戏结束的标志。
         //if (!theAudio.isPlaying)
         //{
         //    Debug.Log("Length of List: "+cubePointsList.Count.ToString());
         //    Debug.Log("Count: "+GLOBAL_PARA.Game.CubeSendRecord);
-        //    SaveAllCubepoint(cubePointsList);
+        //    //SaveAllCubepoint(cubePointsList);
         //    Debug.Log("游戏结束");
         //    Application.Quit();
         //    //SceneManager.LoadScene("GameEnd");
         //}
-        /*
-         * 按照一定的时间间隔生成物体的方法，用来建立记录时间点文件
-        if (timerOne > halfBeat)
-        {
-            Vector3 position = new Vector3(Random.Range(0f, 2f), Random.Range(0f, 1f), cubeZPosition);
-            Instantiate(cube, position, Quaternion.identity);
-            int ra = Random.Range(0, 9);
-            GLOBAL_PARA.CubePoint cubePoint = new GLOBAL_PARA.CubePoint(ra.ToString(), Time.time, position.x, position.y, position.z);
-            cubePointsList.Add(cubePoint);
-            GLOBAL_PARA.Game.CubeSendRecord += 1;
-            timerOne -= halfBeat;//减去相应的时间重新计时
-        }
-        */
-        //根据时间队列中的时间进行生成，先看队首的时间点是不是
+
+        ////按照一定的时间间隔生成物体的方法，用来建立记录时间点文件，读文件生成的时候把这个if注释掉
+        //if (timerOne > halfBeat)
+        //{
+        //    Vector3 position = new Vector3(Random.Range(0.25f, 1.75f), Random.Range(0.25f, 0.75f), cubeZPosition);
+        //    Instantiate(cube, position, Quaternion.identity);
+        //    int ra = Random.Range(0, 10);
+        //    cubePointsList.Add(new GLOBAL_PARA.CubePoint(ra.ToString(), Time.time, position.x, position.y, position.z));
+        //    GLOBAL_PARA.Game.CubeSendRecord += 1;
+        //    if (Random.Range(0f, 1f) < 0.3f)//产生两个并排的
+        //    {
+        //        if (ra <= 3)//左右并排
+        //        {
+        //            Debug.Log("Add one");
+        //            if (ra % 2 == 0)//原来的是红色的
+        //            {
+        //                cubePointsList.Add(new GLOBAL_PARA.CubePoint((ra + 1).ToString(), Time.time, position.x - 0.2f, position.y, position.z));
+        //            }
+        //            else
+        //            {
+        //                cubePointsList.Add(new GLOBAL_PARA.CubePoint((ra - 1).ToString(), Time.time, position.x - 0.2f, position.y, position.z));
+        //            }
+        //        }
+        //        if (4 <= ra && ra <= 7)
+        //        {
+        //            Debug.Log("Add one");
+        //            if (ra % 2 == 0)//原来的是红色的
+        //            {
+        //                cubePointsList.Add(new GLOBAL_PARA.CubePoint((ra + 1).ToString(), Time.time, position.x, position.y + 0.2f, position.z));
+        //            }
+        //            else
+        //            {
+        //                cubePointsList.Add(new GLOBAL_PARA.CubePoint((ra - 1).ToString(), Time.time, position.x, position.y + 0.2f, position.z));
+        //            }
+        //        }
+        //    }
+        //    timerOne -= halfBeat;//减去相应的时间重新计时
+        //}
+
+        //根据时间队列中的时间进行生成，先看队首的时间点是不是生成的时间点
         while (beatTime.Count > 0 && Time.time >= beatTime.Peek())
         {
             beatTime.Dequeue();
