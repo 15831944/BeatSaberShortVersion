@@ -16,7 +16,6 @@ public class SteamVR_PlayArea : MonoBehaviour
 	public float wireframeHeight = 2.0f;
 	public bool drawWireframeWhenSelectedOnly = false;
 	public bool drawInGame = true;
-
 	public enum Size
 	{
 		Calibrated,
@@ -31,7 +30,8 @@ public class SteamVR_PlayArea : MonoBehaviour
 	[HideInInspector]
 	public Vector3[] vertices;
 
-	public static bool GetBounds( Size size, ref HmdQuad_t pRect )
+
+    public static bool GetBounds( Size size, ref HmdQuad_t pRect )
 	{
 		if (size == Size.Calibrated)
 		{

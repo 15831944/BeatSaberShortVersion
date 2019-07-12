@@ -11,7 +11,6 @@ using Valve.VR;
 public class SteamVR_Ears : MonoBehaviour
 {
 	public SteamVR_Camera vrcam;
-
 	bool usingSpeakers;
 	Quaternion offset;
 
@@ -24,8 +23,8 @@ public class SteamVR_Ears : MonoBehaviour
 
 	void OnEnable()
 	{
+        
 		usingSpeakers = false;
-
 		var settings = OpenVR.Settings;
 		if (settings != null)
 		{
