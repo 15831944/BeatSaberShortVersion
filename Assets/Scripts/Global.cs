@@ -77,6 +77,29 @@ namespace GLOBAL_PARA
         }
     }
 
+    public class SongInfo
+    {
+        public enum SONG
+        {
+            SingMeToSleep = 88,//228
+            AllFallsDown = 98,//257
+            WhateverItTakes = 121,//296
+            TikTok = 120,//246
+            TroubleMaker = 115,//263
+        }
+
+        public string songName { set; get; }
+        public string filaPath { set; get; }
+        public int numOfCube { set; get; }
+        public int bPM { set; get; }
+        public SongInfo(GLOBAL_PARA.SongInfo.SONG song)
+        {
+            songName = song.ToString();
+            bPM = (int)song;
+            filaPath = Application.dataPath + @"/Data/" + songName + ".json";
+        }
+    }
+
     public class CubePoint
     {
         public string cubeType { get; set; }//对应预制体前面的编号
