@@ -10,8 +10,8 @@ using System;
 using Random = UnityEngine.Random;
 
 public class CreateCube : MonoBehaviour {
-    public static float cameraZPosition = 0f;//存放摄像机位置的Z坐标，用于配合计算速度
-    public static float cubeZPosition  = 3f;//存放方块生成的位置的Z坐标，用于配合计算速度
+    public static float cameraZPosition = 1f;//存放摄像机位置的Z坐标，用于配合计算速度
+    public static float cubeZPosition  = 50f;//存放方块生成的位置的Z坐标，用于配合计算速度
     private float timerOne = 0f;//计时器
     /// <summary>
     /// 歌曲的BPM的1/2，可以根据不同的难度设置不同的比值
@@ -22,12 +22,12 @@ public class CreateCube : MonoBehaviour {
     private Queue<float> xPosition = new Queue<float>();//对应的生成位置的X坐标队列
     private Queue<float> yPosition = new Queue<float>();//对应的生成位置的Y坐标队列
     private Queue<float> zPosition = new Queue<float>();//对应的生成位置的Z坐标队列
-    public AudioSource theAudio ;
+    //public AudioSource theAudio ;
     public GameObject cube;
     private List<GLOBAL_PARA.CubePoint> cubePointsList= new List<GLOBAL_PARA.CubePoint>();
 	void Start () {
-        theAudio = GetComponent<AudioSource>();
-        theAudio.Play();
+        //theAudio = GetComponent<AudioSource>();
+        //theAudio.Play();
         //确定摄像机的位置
         CreateCube.cameraZPosition = this.gameObject.transform.position.z;
         //先清空记录板然后开始记录
@@ -45,15 +45,15 @@ public class CreateCube : MonoBehaviour {
         //deltaTime是两帧之间的间隔时间，累计超过一定的时间后产生新的方块
         timerOne += Time.deltaTime;
         //音乐结束后的处理，当作游戏结束的标志。
-        if (!theAudio.isPlaying)
-        {
-            Debug.Log("Length of List: "+cubePointsList.Count.ToString());
-            Debug.Log("Count: "+GLOBAL_PARA.Game.CubeSendRecord);
-            //SaveAllCubepoint(cubePointsList);
-            Debug.Log("游戏结束");
-            Application.Quit();
-            //SceneManager.LoadScene("GameEnd");
-        }
+        //if (!theAudio.isPlaying)
+        //{
+        //    Debug.Log("Length of List: "+cubePointsList.Count.ToString());
+        //    Debug.Log("Count: "+GLOBAL_PARA.Game.CubeSendRecord);
+        //    //SaveAllCubepoint(cubePointsList);
+        //    Debug.Log("游戏结束");
+        //    Application.Quit();
+        //    //SceneManager.LoadScene("GameEnd");
+        //}
 
         ////按照一定的时间间隔生成物体的方法，用来建立记录时间点文件，读文件生成的时候把这个if注释掉
         //if (timerOne > halfBeat)
@@ -98,6 +98,8 @@ public class CreateCube : MonoBehaviour {
         {
             beatTime.Dequeue();
             Vector3 position = new Vector3(xPosition.Dequeue(), yPosition.Dequeue(), zPosition.Dequeue());
+            //Debug.Log(position.x.ToString()+"Y: "+position.y.ToString() + "Z: "+position.z.ToString());
+            //Vector3 position = new Vector3(Random.Range(-0.6f, 0.6f), Random.Range(0.8f, 1.9f), 16f);
             GameObject objPre = Resources.Load<GameObject>("Cube" + cubeTypes.Dequeue());
             Instantiate(objPre, position, Quaternion.identity);
         }
