@@ -35,7 +35,7 @@ public class CreateCube : MonoBehaviour {
         CreateCube.cameraZPosition = this.gameObject.transform.position.z;
         //CreateCube.cubeZPosition = cameraZPosition + 16f;
         //计算并设置生成速度
-        Cube.speed = ((cameraZPosition - cubeZPosition) / 4) / (180 /songInfo.bPM);
+        Cube.speed = ((cameraZPosition - cubeZPosition) / 9) / (180 /songInfo.bPM);
         //先清空记录板然后开始记录
         GLOBAL_PARA.Game.ClearRecord();
         ////加载各个队列，生成的时候把以下两行注释掉
@@ -60,7 +60,7 @@ public class CreateCube : MonoBehaviour {
         ////按照一定的时间间隔生成物体的方法，用来建立记录时间点文件，读文件生成的时候把这个if注释掉
         if (timerOne > (180 / songInfo.bPM) && this.GetComponent<AudioSource>().isPlaying)
         {
-            Vector3 position = new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(1.4f, 1.5f), cubeZPosition);
+            Vector3 position = new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(8.8f, 9.5f), cubeZPosition);
             Instantiate(cube, position, Quaternion.identity);
             Debug.Log("Z position: "+position.z.ToString());
             int ra = Random.Range(0, 10);
@@ -73,11 +73,11 @@ public class CreateCube : MonoBehaviour {
                     Debug.Log("Add one");
                     if (ra % 2 == 0)//原来的是红色的
                     {
-                        cubePointsList.Add(new GLOBAL_PARA.CubePoint(ra + 1, Time.time, position.x - 0.05f, position.y, position.z));
+                        cubePointsList.Add(new GLOBAL_PARA.CubePoint(ra + 1, Time.time, position.x - 0.1f, position.y, position.z));
                     }
                     else
                     {
-                        cubePointsList.Add(new GLOBAL_PARA.CubePoint(ra - 1, Time.time, position.x - 0.05f, position.y, position.z));
+                        cubePointsList.Add(new GLOBAL_PARA.CubePoint(ra - 1, Time.time, position.x - 0.1f, position.y, position.z));
                     }
                 }
                 if (4 <= ra && ra <= 7)
@@ -85,11 +85,11 @@ public class CreateCube : MonoBehaviour {
                     Debug.Log("Add one");
                     if (ra % 2 == 0)//原来的是红色的
                     {
-                        cubePointsList.Add(new GLOBAL_PARA.CubePoint(ra + 1, Time.time, position.x, position.y + 0.05f, position.z));
+                        cubePointsList.Add(new GLOBAL_PARA.CubePoint(ra + 1, Time.time, position.x, position.y + 0.1f, position.z));
                     }
                     else
                     {
-                        cubePointsList.Add(new GLOBAL_PARA.CubePoint(ra - 1, Time.time, position.x, position.y + 0.05f, position.z));
+                        cubePointsList.Add(new GLOBAL_PARA.CubePoint(ra - 1, Time.time, position.x, position.y + 0.1f, position.z));
                     }
                 }
             }
