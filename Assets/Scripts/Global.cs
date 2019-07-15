@@ -5,22 +5,7 @@ using Newtonsoft.Json;
 
 namespace GLOBAL_PARA
 {
-    //<<<<<<< HEAD
-    public enum TypeOfColor
-    {
-        RED = 0,
-        BLUE = 1,
-    }
-    public enum HitPoint
-    {
-        UP = 0,
-        DOWN = 1,
-        LEFT = 2,
-        RIGHT = 3,
-        ANY = 4,
-    }
 
-    //=======
     public enum CubeType
     {
         REDUP = 0,
@@ -34,7 +19,7 @@ namespace GLOBAL_PARA
         REDANY = 8,
         BLUEANY = 9,
     }
-//>>>>>>> 499d4c1b2bae595ff57919aa040556ee7ae580a1
+
     public class Global
     {
 
