@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65415091326710022}
   - component: {fileID: 114480816228265786}
   m_Layer: 0
-  m_Name: Cube8
+  m_Name: REDANY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

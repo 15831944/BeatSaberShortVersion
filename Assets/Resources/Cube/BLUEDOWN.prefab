@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65485027530110846}
   - component: {fileID: 114840679934112162}
   m_Layer: 0
-  m_Name: Cube3
+  m_Name: BLUEDOWN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
