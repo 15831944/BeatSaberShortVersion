@@ -5,6 +5,19 @@ using Newtonsoft.Json;
 
 namespace GLOBAL_PARA
 {
+	public enum CubeType
+    {
+        REDUP = 0,
+        BLUEUP = 1,
+        REDDOWN = 2,
+        BLUEDOWN = 3,
+        REDRIGHT = 4,
+        BLUERIGHT = 5,
+        REDLEFT = 6,
+        BLUELEFT  =7,
+        REDANY = 8,
+        BLUEANY = 9,
+    }
     public class Global
     {
         
@@ -102,7 +115,7 @@ namespace GLOBAL_PARA
 
     public class CubePoint
     {
-        public string cubeType { get; set; }//对应预制体前面的编号
+        public int cubeType { get; set; }//对应预制体前面的编号
         public float time { get; set; }//在游戏出现的时间点
         public float x { get; set; }
         public float y { get; set; }
@@ -111,7 +124,7 @@ namespace GLOBAL_PARA
         {
 
         }
-        public CubePoint(string cubeType, float time,float x,float y,float z)
+        public CubePoint(int cubeType, float time,float x,float y,float z)
         {
             this.cubeType = cubeType;
             this.time = time;
