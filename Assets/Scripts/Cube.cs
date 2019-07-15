@@ -16,12 +16,12 @@ public class Cube : MonoBehaviour {
     }
 
 	void Update () {
-        ////判断物体是不是过了视界了，过了就销毁
-        //if (this.gameObject.transform.position.z <= cameraZPosition)
-        //{
-        //    Destroy(gameObject);
-        //}
-        ////让物体进行移动，摄像机在后面，前面要加个负号
-        //transform.Translate(Vector3.forward * Time.deltaTime * speed);
-	}
+        //判断物体是不是过了视界了，过了就销毁
+        if (this.gameObject.transform.position.z >= cameraZPosition)
+        {
+            Destroy(gameObject);
+        }
+        //让物体进行移动，摄像机在后面，前面要加个负号
+        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+    }
 }
