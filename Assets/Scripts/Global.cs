@@ -5,9 +5,21 @@ using Newtonsoft.Json;
 
 namespace GLOBAL_PARA
 {
+    public enum TypeOfColor
+    {
+
+    }
+    public enum HitPoint
+    {
+        UP =0,
+        DOWN = 1,
+        LEFT = 2,
+        RIGHT = 3,
+        ANY = 4,
+    }
     public class Global
     {
-        
+
     }
     public class Game
     {
@@ -77,6 +89,56 @@ namespace GLOBAL_PARA
         }
     }
 
+    /// <summary>
+    /// 存储音乐的存放路径，BPM等信息
+    /// </summary>
+    public class SongInfo
+    {
+        public enum SONG
+        {
+            SingMeToSleep = 88,//228
+            AllFallsDown = 98,//257
+            WhateverItTakes = 121,//296
+            TikTok = 120,//246
+            TroubleMaker = 115,//263
+        }
+
+        public string songName { set; get; }
+        public string filaPath { set; get; }
+        public int numOfCube { set; get; }
+        public int bPM { set; get; }
+        public SongInfo(GLOBAL_PARA.SongInfo.SONG song)
+        {
+            songName = song.ToString();
+            bPM = (int)song;
+            filaPath = Application.dataPath + @"/Data/" + songName + ".json";
+        }
+    }
+
+    public class CubePara
+    {
+        /// <summary>
+        /// 枚举物体的类型，一共有RED和BLUE对应左右手的光剑
+        /// </summary>
+        public enum TypeOfCube
+        {
+            RED = 0,
+            BULE = 1,
+        };
+        /// <summary>
+        /// 要求击中物体的方向，上下左右以及任意点
+        /// </summary>
+        public enum HeatPoint
+        {
+            UP = 0,
+            DOWN = 1,
+            LEFT = 2,
+            RIGHT = 3,
+            ANY = 4,
+        };
+
+    }
+ 
     public class CubePoint
     {
         public string cubeType { get; set; }//对应预制体前面的编号
@@ -97,28 +159,17 @@ namespace GLOBAL_PARA
             this.z = z;
         }
     }
-
-
-    /// <summary>
-    /// 枚举光剑和方块的类型，一共有RED和BLUE两种
-    /// </summary>
-    public enum TypeOfColor
+    public class SaberPara
     {
-        RED = 0,
-        BLUE = 1,
-    };
-
-    /// <summary>
-    /// 要求击中物体的方向，上下左右以及任意点
-    /// </summary>
-    public enum HitPoint
-    {
-        UP = 0,
-        DOWN = 1,
-        LEFT = 2,
-        RIGHT = 3,
-        ANY = 4,
-    };
+        /// <summary>
+        /// 枚举光剑的类型，一共有RED和BLUE两种
+        /// </summary>
+        public enum TypeOfSaber
+        {
+            RED = 0,
+            BLUE = 1,
+        };
+    }
 
 }
 
