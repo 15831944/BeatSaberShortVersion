@@ -168,7 +168,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1633768827268698}
   m_LocalRotation: {x: 0.5574093, y: 0, z: -0, w: 0.83023787}
-  m_LocalPosition: {x: -0, y: 1.5778282, z: -2.4776688}
+  m_LocalPosition: {x: 0, y: 1.7170398, z: -2.533523}
   m_LocalScale: {x: -6.087574, y: -17.407457, z: -48.005726}
   m_Children: []
   m_Father: {fileID: 4427664605215052}
@@ -181,7 +181,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1356122102707144}
   m_LocalRotation: {x: 0.5574093, y: 0, z: -0, w: 0.83023787}
-  m_LocalPosition: {x: -0, y: 1.6637031, z: -3.1785944}
+  m_LocalPosition: {x: 0, y: 1.4822769, z: -3.1049907}
   m_LocalScale: {x: -6.087574, y: -17.407457, z: -48.005726}
   m_Children: []
   m_Father: {fileID: 4427664605215052}
@@ -206,9 +206,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1156402352606384}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.225, y: 0.656, z: -7.54}
-  m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.06, z: 0.2}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4540549769374208}
   - {fileID: 4729447787907568}
@@ -251,7 +251,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1146222083561686}
-  m_LocalRotation: {x: 0.0000000016119625, y: 0.7071067, z: 0.7071068, w: -0.0000000016119621}
+  m_LocalRotation: {x: -0.09410041, y: 0.2806239, z: 0.9055322, w: -0.30398488}
   m_LocalPosition: {x: -0.0000000132688225, y: 1.38143, z: -5.16591}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
@@ -518,7 +518,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!95 &95953210797842984
 Animator:
   serializedVersion: 3
@@ -581,7 +581,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.4500022
-  m_Height: 22.705841
+  m_Radius: 0.8013547
+  m_Height: 22.705843
   m_Direction: 2
-  m_Center: {x: 0.01, y: 1.16, z: -0.22112131}
+  m_Center: {x: -0.02, y: 1.41, z: -0.22112176}

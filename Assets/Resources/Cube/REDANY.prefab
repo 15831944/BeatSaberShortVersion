@@ -22,7 +22,9 @@ GameObject:
   - component: {fileID: 33455403563504590}
   - component: {fileID: 23208509337247102}
   - component: {fileID: 114051721384780862}
-  m_Layer: 0
+  - component: {fileID: 65319942031485806}
+  - component: {fileID: 54795354199052812}
+  m_Layer: 8
   m_Name: REDANY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,6 +87,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1845287612037338}
   m_Mesh: {fileID: 4300000, guid: 6d848ec6f4a1541dcb5089132a30fdbe, type: 3}
+--- !u!54 &54795354199052812
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1845287612037338}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
+--- !u!65 &65319942031485806
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1845287612037338}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.039281733, y: 0.039031208, z: 0.03935163}
+  m_Center: {x: 0, y: 0, z: -0.019675815}
 --- !u!114 &114051721384780862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -97,4 +126,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 0
-  hitPoint: 0
+  hitPoint: 4
