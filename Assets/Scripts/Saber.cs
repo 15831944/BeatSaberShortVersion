@@ -97,6 +97,12 @@ public class Saber : MonoBehaviour {
             return false;
         }
 
+        if(IsHitForB(victim.transform.position, collision.contacts[0].point))
+        {
+            Debug.Log("不能碰撞前面或后面！");
+            return false;
+        }
+
         if (cube.hitPoint == GLOBAL_PARA.HitPoint.ANY) return true;
 
         if(cube.hitPoint != GetHitFrom(victim.transform.position, collision.contacts[0].point))
@@ -106,6 +112,24 @@ public class Saber : MonoBehaviour {
         }
 
         return true;
+    }
+
+    /// <summary>
+    /// 判断是否碰撞到前面或后面
+    /// </summary>
+    /// <param name="centerPoint">中心点</param>
+    /// <param name="hitPoint">碰撞点</param>
+    /// <returns>碰撞到前后面返回true，否则返回false</returns>
+    private bool IsHitForB(Vector3 centerPoint, Vector3 hitPoint)
+    {
+        float deltaX = hitPoint.x - centerPoint.x;
+        float deltaY = hitPoint.y - centerPoint.y;
+        float deltaZ = hitPoint.z - centerPoint.z;
+
+        if (Mathf.Abs(deltaZ) >= Mathf.Abs(deltaX) || Mathf.Abs(deltaZ) > Mathf.Abs(deltaY))
+            return true;
+
+        return false;
     }
 
     /// <summary>
