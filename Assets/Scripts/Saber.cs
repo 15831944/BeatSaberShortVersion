@@ -8,6 +8,16 @@ using UnityEngine;
 public class Saber : MonoBehaviour {
 
     /// <summary>
+    /// 切割正确时的音效
+    /// </summary>
+    public AudioClip correctTrriger;
+
+    /// <summary>
+    /// 切割错误时的音效
+    /// </summary>
+    public AudioClip errorTrriger;
+
+    /// <summary>
     /// 切割面的材质
     /// </summary>
     public Material capMaterial;
@@ -50,11 +60,13 @@ public class Saber : MonoBehaviour {
         {
             //切割成功时
             GLOBAL_PARA.Game.CutCorrect();
+            AudioSource.PlayClipAtPoint(correctTrriger, victim.transform.position);
         }
         else
         {
             //切割失败时
             GLOBAL_PARA.Game.RefreshCombo();
+            AudioSource.PlayClipAtPoint(errorTrriger, victim.transform.position);
         }
     }
 
@@ -97,9 +109,9 @@ public class Saber : MonoBehaviour {
             return false;
         }
 
-        if(IsHitForB(victim.transform.position, collision.contacts[0].point))
+        if (collision.contacts[0].normal.z == -1 )
         {
-            Debug.Log("不能碰撞前面或后面！");
+            Debug.Log("不能碰撞方块的前面！");
             return false;
         }
 
@@ -112,24 +124,6 @@ public class Saber : MonoBehaviour {
         }
 
         return true;
-    }
-
-    /// <summary>
-    /// 判断是否碰撞到前面或后面
-    /// </summary>
-    /// <param name="centerPoint">中心点</param>
-    /// <param name="hitPoint">碰撞点</param>
-    /// <returns>碰撞到前后面返回true，否则返回false</returns>
-    private bool IsHitForB(Vector3 centerPoint, Vector3 hitPoint)
-    {
-        float deltaX = hitPoint.x - centerPoint.x;
-        float deltaY = hitPoint.y - centerPoint.y;
-        float deltaZ = hitPoint.z - centerPoint.z;
-
-        if (Mathf.Abs(deltaZ) >= Mathf.Abs(deltaX) || Mathf.Abs(deltaZ) > Mathf.Abs(deltaY))
-            return true;
-
-        return false;
     }
 
     /// <summary>
