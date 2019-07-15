@@ -5,20 +5,36 @@ using Newtonsoft.Json;
 
 namespace GLOBAL_PARA
 {
-    public enum TypeOfColor
-    {
-        RED = 0,
-        BLUE = 1,
-    }
-    public enum HitPoint
-    {
-        UP =0,
-        DOWN = 1,
-        LEFT = 2,
-        RIGHT = 3,
-        ANY = 4,
-    }
+//<<<<<<< HEAD
+//    public enum TypeOfColor
+//    {
+//        RED = 0,
+//        BLUE = 1,
+//    }
+//    public enum HitPoint
+//    {
+//        UP =0,
+//        DOWN = 1,
+//        LEFT = 2,
+//        RIGHT = 3,
+//        ANY = 4,
+//    }
 
+//=======
+	public enum CubeType
+    {
+        REDUP = 0,
+        BLUEUP = 1,
+        REDDOWN = 2,
+        BLUEDOWN = 3,
+        REDRIGHT = 4,
+        BLUERIGHT = 5,
+        REDLEFT = 6,
+        BLUELEFT  =7,
+        REDANY = 8,
+        BLUEANY = 9,
+    }
+//>>>>>>> 499d4c1b2bae595ff57919aa040556ee7ae580a1
     public class Global
     {
 
@@ -143,7 +159,7 @@ namespace GLOBAL_PARA
  
     public class CubePoint
     {
-        public string cubeType { get; set; }//对应预制体前面的编号
+        public int cubeType { get; set; }//对应预制体前面的编号
         public float time { get; set; }//在游戏出现的时间点
         public float x { get; set; }
         public float y { get; set; }
@@ -152,7 +168,7 @@ namespace GLOBAL_PARA
         {
 
         }
-        public CubePoint(string cubeType, float time,float x,float y,float z)
+        public CubePoint(int cubeType, float time,float x,float y,float z)
         {
             this.cubeType = cubeType;
             this.time = time;
