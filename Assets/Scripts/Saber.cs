@@ -8,6 +8,16 @@ using UnityEngine;
 public class Saber : MonoBehaviour {
 
     /// <summary>
+    /// 切割正确时的音效
+    /// </summary>
+    public AudioClip correctTrriger;
+
+    /// <summary>
+    /// 切割错误时的音效
+    /// </summary>
+    public AudioClip errorTrriger;
+
+    /// <summary>
     /// 切割面的材质
     /// </summary>
     public Material capMaterial;
@@ -50,11 +60,13 @@ public class Saber : MonoBehaviour {
         {
             //切割成功时
             GLOBAL_PARA.Game.CutCorrect();
+            AudioSource.PlayClipAtPoint(correctTrriger, victim.transform.position);
         }
         else
         {
             //切割失败时
             GLOBAL_PARA.Game.RefreshCombo();
+            AudioSource.PlayClipAtPoint(errorTrriger, victim.transform.position);
         }
     }
 
@@ -94,6 +106,12 @@ public class Saber : MonoBehaviour {
         if(cube.color != this.color)
         {
             Debug.Log(string.Format("切割错误：光剑颜色为{0}，方块颜色为{1}。", this.color , cube.color));
+            return false;
+        }
+
+        if (collision.contacts[0].normal.z == -1 )
+        {
+            Debug.Log("不能碰撞方块的前面！");
             return false;
         }
 

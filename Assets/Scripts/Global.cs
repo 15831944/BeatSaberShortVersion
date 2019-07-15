@@ -5,23 +5,8 @@ using Newtonsoft.Json;
 
 namespace GLOBAL_PARA
 {
-//<<<<<<< HEAD
-//    public enum TypeOfColor
-//    {
-//        RED = 0,
-//        BLUE = 1,
-//    }
-//    public enum HitPoint
-//    {
-//        UP =0,
-//        DOWN = 1,
-//        LEFT = 2,
-//        RIGHT = 3,
-//        ANY = 4,
-//    }
 
-//=======
-	public enum CubeType
+    public enum CubeType
     {
         REDUP = 0,
         BLUEUP = 1,
@@ -34,7 +19,7 @@ namespace GLOBAL_PARA
         REDANY = 8,
         BLUEANY = 9,
     }
-//>>>>>>> 499d4c1b2bae595ff57919aa040556ee7ae580a1
+
     public class Global
     {
 
@@ -133,30 +118,27 @@ namespace GLOBAL_PARA
         }
     }
 
-    public class CubePara
+    /// <summary>
+    /// 要求击中物体的方向，上下左右以及任意点
+    /// </summary>
+    public enum HitPoint
     {
-        /// <summary>
-        /// 枚举物体的类型，一共有RED和BLUE对应左右手的光剑
-        /// </summary>
-        public enum TypeOfCube
-        {
-            RED = 0,
-            BULE = 1,
-        };
-        /// <summary>
-        /// 要求击中物体的方向，上下左右以及任意点
-        /// </summary>
-        public enum HeatPoint
-        {
-            UP = 0,
-            DOWN = 1,
-            LEFT = 2,
-            RIGHT = 3,
-            ANY = 4,
-        };
+        UP = 0,
+        DOWN = 1,
+        LEFT = 2,
+        RIGHT = 3,
+        ANY = 4,
+    };
 
-    }
- 
+    /// <summary>
+    /// 枚举颜色类型，一共有RED和BLUE两种
+    /// </summary>
+    public enum TypeOfColor
+    {
+        RED = 0,
+        BLUE = 1,
+    };
+
     public class CubePoint
     {
         public int cubeType { get; set; }//对应预制体前面的编号
@@ -176,17 +158,6 @@ namespace GLOBAL_PARA
             this.y = y;
             this.z = z;
         }
-    }
-    public class SaberPara
-    {
-        /// <summary>
-        /// 枚举光剑的类型，一共有RED和BLUE两种
-        /// </summary>
-        public enum TypeOfSaber
-        {
-            RED = 0,
-            BLUE = 1,
-        };
     }
 
 }
