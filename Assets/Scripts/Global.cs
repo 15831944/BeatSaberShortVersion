@@ -7,7 +7,8 @@ namespace GLOBAL_PARA
 {
     public enum TypeOfColor
     {
-
+        RED = 0,
+        BLUE = 1,
     }
     public enum HitPoint
     {
@@ -17,6 +18,7 @@ namespace GLOBAL_PARA
         RIGHT = 3,
         ANY = 4,
     }
+
     public class Global
     {
 
