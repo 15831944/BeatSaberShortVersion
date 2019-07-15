@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65051723460369204}
   - component: {fileID: 114276910989102380}
   m_Layer: 0
-  m_Name: Cube7
+  m_Name: BLUELEFT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,5 +108,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4066216d7886ca4b948c04d216b5cdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TypeOfCube: 1
-  HeatPoint: 2
+  color: 0
+  hitPoint: 0

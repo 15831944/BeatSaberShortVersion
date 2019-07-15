@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65303498688462458}
   - component: {fileID: 114071195292185666}
   m_Layer: 0
-  m_Name: Cube4
+  m_Name: REDRIGHT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,5 +108,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4066216d7886ca4b948c04d216b5cdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TypeOfCube: 0
-  HeatPoint: 3
+  color: 0
+  hitPoint: 0
