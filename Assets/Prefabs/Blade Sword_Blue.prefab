@@ -570,11 +570,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctTrriger: {fileID: 8300000, guid: ec34a83b8f8dbc24aa35b1f7323186fc, type: 3}
-  errorTrriger: {fileID: 8300000, guid: 7ab41f4e01402294ca23daaf162bebc3, type: 3}
+  errorTrriger: {fileID: 8300000, guid: 6ae305409836d254a9dd7103fe20014c, type: 3}
   capMaterial: {fileID: 2100000, guid: 24a5b4651d5d96f41b627db20b0849b1, type: 2}
   endPoint: {fileID: 1081680496666720}
   color: 1
-  hapticForce: 50
+  hapticForce: 0
 --- !u!136 &136664676450660906
 CapsuleCollider:
   m_ObjectHideFlags: 1

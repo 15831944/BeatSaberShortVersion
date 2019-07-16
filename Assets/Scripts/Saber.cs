@@ -58,9 +58,6 @@ public class Saber : MonoBehaviour {
         //当Collision/Rigidbody触发另一个时调用
         GameObject victim = col.collider.gameObject;
 
-        //VRTK震动反馈
-        VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(gameObject), hapticForce);
-
         //若没有方块属性则返回
         if (!victim.GetComponent<Cube>()) return;
 
@@ -70,12 +67,17 @@ public class Saber : MonoBehaviour {
             //切割成功时
             GLOBAL_PARA.Game.CutCorrect();
             AudioSource.PlayClipAtPoint(correctTrriger, victim.transform.position);
+            //VRTK震动反馈
+            VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(gameObject), hapticForce);
         }
         else
         {
             //切割失败时
             GLOBAL_PARA.Game.RefreshCombo();
-            AudioSource.PlayClipAtPoint(errorTrriger, victim.transform.position);
+            //TODO 目前声音太大，需要在实际运行时调整音量
+            AudioSource.PlayClipAtPoint(errorTrriger, victim.transform.position ,0.5f);
+            //VRTK震动反馈
+            VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(gameObject), 1.5f * hapticForce);
         }
     }
 
