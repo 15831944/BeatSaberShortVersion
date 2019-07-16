@@ -574,6 +574,7 @@ MonoBehaviour:
   capMaterial: {fileID: 2100000, guid: 4161081f87af99040b0f3b7e04c7721c, type: 2}
   endPoint: {fileID: 1537118666047128}
   color: 0
+  hapticForce: 50
 --- !u!136 &136082999556933314
 CapsuleCollider:
   m_ObjectHideFlags: 1

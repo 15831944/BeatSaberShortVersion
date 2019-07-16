@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VRTK;
 
 /// <summary>
 /// 剑切开方块的脚本
@@ -33,6 +34,11 @@ public class Saber : MonoBehaviour {
     public GLOBAL_PARA.TypeOfColor color;
 
     /// <summary>
+    /// 震动反馈的强度
+    /// </summary>
+    public float hapticForce;
+
+    /// <summary>
     /// 剑的末端的上一帧位置
     /// </summary>
     private Vector3 lastPosition;
@@ -51,6 +57,9 @@ public class Saber : MonoBehaviour {
     {
         //当Collision/Rigidbody触发另一个时调用
         GameObject victim = col.collider.gameObject;
+
+        //VRTK震动反馈
+        VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(gameObject), hapticForce);
 
         //若没有方块属性则返回
         if (!victim.GetComponent<Cube>()) return;
