@@ -181,7 +181,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1526879939646496}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.06, z: 0.5}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0.557}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4400044042018722}
@@ -226,7 +226,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1435246001146336}
   m_LocalRotation: {x: 0.5574093, y: 0, z: -0, w: 0.83023787}
-  m_LocalPosition: {x: -0, y: 1.5778282, z: -2.4776688}
+  m_LocalPosition: {x: 0, y: 1.5811014, z: -2.4789827}
   m_LocalScale: {x: -6.087574, y: -17.407457, z: -48.005726}
   m_Children: []
   m_Father: {fileID: 4326862674630012}
@@ -254,7 +254,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1271904913368410}
   m_LocalRotation: {x: 0.5574093, y: 0, z: -0, w: 0.83023787}
-  m_LocalPosition: {x: -0, y: 1.6637031, z: -3.1785944}
+  m_LocalPosition: {x: 0, y: 1.658705, z: -3.1765666}
   m_LocalScale: {x: -6.087574, y: -17.407457, z: -48.005726}
   m_Children: []
   m_Father: {fileID: 4326862674630012}
@@ -266,7 +266,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1817814390014038}
-  m_LocalRotation: {x: 0.0000000016119625, y: 0.7071067, z: 0.7071068, w: -0.0000000016119621}
+  m_LocalRotation: {x: 0.38927498, y: 0.32478312, z: 0.5522178, w: 0.66184324}
   m_LocalPosition: {x: -0.0000000132688225, y: 1.38143, z: -5.16591}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
@@ -574,7 +574,7 @@ MonoBehaviour:
   capMaterial: {fileID: 2100000, guid: 4161081f87af99040b0f3b7e04c7721c, type: 2}
   endPoint: {fileID: 1537118666047128}
   color: 0
-  hapticForce: 0
+  hapticForce: 100
 --- !u!136 &136082999556933314
 CapsuleCollider:
   m_ObjectHideFlags: 1
