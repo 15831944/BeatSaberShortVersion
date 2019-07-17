@@ -98,37 +98,35 @@ public class Saber : MonoBehaviour {
         //优化切割，避免切割边角
         Vector3 cutPoint = (cube.transform.position + collision.contacts[0].point) / 2;
 
-        GameObject[] pieces = BLINDED_AM_ME.MeshCut.Cut(cube, cutPoint, new Vector3(direction.y, -direction.x, 0), capMaterial);
+        GameObject[] pieces = BLINDED_AM_ME.MeshCut.Cut(cube, cutPoint, new Vector3(direction.y, -direction.x, 0), new Material(capMaterial));
 
         if (!pieces[1].GetComponent<Rigidbody>())
             pieces[1].AddComponent<Rigidbody>();
-        pieces[1].GetComponent<Rigidbody>().useGravity = false;
+        pieces[0].GetComponent<Rigidbody>().useGravity = true;
 
         switch (GetHitFrom(cube.transform.position, collision.contacts[0].point))
         {
             case GLOBAL_PARA.HitPoint.RIGHT:
-                pieces[0].GetComponent<Rigidbody>().velocity = new Vector3(0f, -3f);
-                pieces[1].GetComponent<Rigidbody>().velocity = new Vector3(0f, 3f);
+                pieces[1].GetComponent<Rigidbody>().AddForce(new Vector3(0, 5f) ,ForceMode.Impulse);
                 break;
 
             case GLOBAL_PARA.HitPoint.LEFT:
-                pieces[0].GetComponent<Rigidbody>().velocity = new Vector3(0f, 3f);
-                pieces[1].GetComponent<Rigidbody>().velocity = new Vector3(0f, -3f);
+                pieces[0].GetComponent<Rigidbody>().AddForce(new Vector3(0, 5f), ForceMode.Impulse);
                 break;
 
             case GLOBAL_PARA.HitPoint.UP:
-                pieces[0].GetComponent<Rigidbody>().velocity = new Vector3(3f, 0f);
-                pieces[1].GetComponent<Rigidbody>().velocity = new Vector3(-3f, 0f);
+                pieces[0].GetComponent<Rigidbody>().AddForce(new Vector3(3f, 0), ForceMode.Impulse);
+                pieces[1].GetComponent<Rigidbody>().AddForce(new Vector3(-3f, 0), ForceMode.Impulse);
                 break;
 
             case GLOBAL_PARA.HitPoint.DOWN:
-                pieces[0].GetComponent<Rigidbody>().velocity = new Vector3(-3f, 0f);
-                pieces[1].GetComponent<Rigidbody>().velocity = new Vector3(3f, 0f);
+                pieces[0].GetComponent<Rigidbody>().AddForce(new Vector3(-3f, 0), ForceMode.Impulse);
+                pieces[1].GetComponent<Rigidbody>().AddForce(new Vector3(3f, 0), ForceMode.Impulse);
                 break;
         }
 
-        Destroy(pieces[0], 0.5f);
-        Destroy(pieces[1], 0.5f);
+        pieces[0].GetComponent<CubeDissolve>().enabled = true;
+        pieces[1].AddComponent<CubeDissolve>();
     }
 
     /// <summary>
