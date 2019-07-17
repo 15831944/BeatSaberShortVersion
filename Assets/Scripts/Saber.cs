@@ -68,7 +68,7 @@ public class Saber : MonoBehaviour {
             GLOBAL_PARA.Game.CutCorrect();
             AudioSource.PlayClipAtPoint(correctTrriger, victim.transform.position);
 
-            Debug.Log(victim.transform.position.z);
+            //Debug.Log(victim.transform.position.z);
 
             //VRTK震动反馈
             VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(transform.parent.gameObject), hapticForce);
@@ -102,9 +102,33 @@ public class Saber : MonoBehaviour {
 
         if (!pieces[1].GetComponent<Rigidbody>())
             pieces[1].AddComponent<Rigidbody>();
+        pieces[1].GetComponent<Rigidbody>().useGravity = false;
 
-        Destroy(pieces[0], 1);
-        Destroy(pieces[1], 1);
+        switch (GetHitFrom(cube.transform.position, collision.contacts[0].point))
+        {
+            case GLOBAL_PARA.HitPoint.RIGHT:
+                pieces[0].GetComponent<Rigidbody>().velocity = new Vector3(0f, -3f);
+                pieces[1].GetComponent<Rigidbody>().velocity = new Vector3(0f, 3f);
+                break;
+
+            case GLOBAL_PARA.HitPoint.LEFT:
+                pieces[0].GetComponent<Rigidbody>().velocity = new Vector3(0f, 3f);
+                pieces[1].GetComponent<Rigidbody>().velocity = new Vector3(0f, -3f);
+                break;
+
+            case GLOBAL_PARA.HitPoint.UP:
+                pieces[0].GetComponent<Rigidbody>().velocity = new Vector3(3f, 0f);
+                pieces[1].GetComponent<Rigidbody>().velocity = new Vector3(-3f, 0f);
+                break;
+
+            case GLOBAL_PARA.HitPoint.DOWN:
+                pieces[0].GetComponent<Rigidbody>().velocity = new Vector3(-3f, 0f);
+                pieces[1].GetComponent<Rigidbody>().velocity = new Vector3(3f, 0f);
+                break;
+        }
+
+        Destroy(pieces[0], 0.5f);
+        Destroy(pieces[1], 0.5f);
     }
 
     /// <summary>
