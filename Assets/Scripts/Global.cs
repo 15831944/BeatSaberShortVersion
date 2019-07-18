@@ -69,7 +69,7 @@ namespace GLOBAL_PARA
         /// <returns>返回击中的方块数占总的方块数的比例</returns>
         public static float GetHeatPercent()
         {
-            return CubeHeatRecord / CubeSendRecord;
+            return ((float)CubeHeatRecord / (float)CubeSendRecord)*100;
         }
 
         /// <summary>
@@ -90,6 +90,14 @@ namespace GLOBAL_PARA
                 MaxComboRecord = CurrentComboRecord;
             CurrentComboRecord = 0;
         }
+        /// <summary>
+        /// 计算得分
+        /// </summary>
+        public static float CountScore()
+        {
+            return CubeHeatRecord*5+MaxComboRecord;
+        }
+            
     }
 
     /// <summary>

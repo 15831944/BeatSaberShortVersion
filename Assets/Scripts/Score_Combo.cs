@@ -8,7 +8,7 @@ public class Score_Combo : MonoBehaviour {
 
     // Update score and combo
     void Update () {
-        score.GetComponent<TextMesh>().text = GLOBAL_PARA.Game.GetHeatPercent().ToString();
-        combo.GetComponent<TextMesh>().text = GLOBAL_PARA.Game.MaxComboRecord.ToString();
+        score.GetComponent<TextMesh>().text = GLOBAL_PARA.Game.CountScore().ToString();
+        combo.GetComponent<TextMesh>().text = GLOBAL_PARA.Game.CurrentComboRecord.ToString();
     }
 }

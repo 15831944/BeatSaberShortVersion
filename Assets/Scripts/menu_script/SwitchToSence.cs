@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,6 +20,8 @@ public class SwitchToSence : MonoBehaviour {
     {
         bgmManager.instance.stopbgm();
         bgmName = bgmManager.instance.getcurrentAudioName();
+        GLOBAL_PARA.SongInfo.SONG songSame = (GLOBAL_PARA.SongInfo.SONG)GLOBAL_PARA.SongInfo.SONG.Parse(typeof(GLOBAL_PARA.SongInfo.SONG), bgmName);
+        Debug.Log("跳出");
         //SampleScene为需要转换至的场景的名称
         SceneManager.LoadScene("Back_CubeDistance");
     }

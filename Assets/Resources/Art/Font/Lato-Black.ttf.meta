@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 251b360fcc84be04e89dec15dfee017c
+guid: 75dccb4a58daaf541a563be3f565ec45
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,12 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Lato
-  fontNames:
-  - Lato
-  fallbackFontReferences:
-  - {fileID: 12800000, guid: a34492b19cb16b5419e9cbc2edb374b0, type: 3}
-  - {fileID: 12800000, guid: 09b2dae4708435f4d97a9e1b26ed3929, type: 3}
+  fontName: 
+  fontNames: []
+  fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1

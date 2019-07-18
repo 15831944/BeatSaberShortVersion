@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4826236277017684}
   - component: {fileID: 33032494474545010}
   - component: {fileID: 23837745256639972}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4868733081675828}
   - component: {fileID: 33803080990553920}
   - component: {fileID: 23135870800299016}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4816437921220900}
   - component: {fileID: 33148131480778212}
   - component: {fileID: 23646605802536114}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4387616561286740}
   - component: {fileID: 198759287861003274}
   - component: {fileID: 199605152969084676}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ElectricalSparksEffect_Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 54565658070269996}
   - component: {fileID: 136082999556933314}
   - component: {fileID: 114711242856479466}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Blade Sword_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 4838691902473466}
   - component: {fileID: 33670638047743672}
   - component: {fileID: 23793894552816128}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 4400044042018722}
   - component: {fileID: 33586787911330204}
   - component: {fileID: 23360447761457936}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

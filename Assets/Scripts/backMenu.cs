@@ -7,6 +7,7 @@ public class backMenu : MonoBehaviour {
 
     //public GameObject pausecanvas;
     SteamVR_TrackedObject trackdeObjec;
+     
 
     void Awake()
     {

@@ -10,11 +10,13 @@ using System;
 using Random = UnityEngine.Random;
 
 public class CreateCube : MonoBehaviour {
+    public GameObject resultcanvas;
     public static float cameraZPosition = 0.21f;//存放摄像机位置的Z坐标，用于配合计算速度
     public static float cubeZPosition  = -10.75f;//存放方块生成的位置的Z坐标，用于配合计算速度
     private float timerOne = 0f;//计时器
     public static GLOBAL_PARA.SongInfo songInfo ;
     private bool IS_PLAYING = false;
+    private float collapseTime = 0;
     /// <summary>
     /// 歌曲的BPM的1/2，可以根据不同的难度设置不同的比值
     /// </summary>
@@ -24,9 +26,9 @@ public class CreateCube : MonoBehaviour {
     private Queue<float> xPosition = new Queue<float>();//对应的生成位置的X坐标队列
     private Queue<float> yPosition = new Queue<float>();//对应的生成位置的Y坐标队列
     private Queue<float> zPosition = new Queue<float>();//对应的生成位置的Z坐标队列
-    public GameObject cube;
     private List<GLOBAL_PARA.CubePoint> cubePointsList= new List<GLOBAL_PARA.CubePoint>();
 	void Start () {
+        collapseTime = Time.time;
         Debug.Log("Here");
         songInfo = new GLOBAL_PARA.SongInfo(GLOBAL_PARA.SongInfo.SONG.AllFallsDown);
         AudioClip audioClip = Resources.Load<AudioClip>("Song/"+songInfo.songName);
@@ -54,6 +56,7 @@ public class CreateCube : MonoBehaviour {
             Debug.Log("Count: "+GLOBAL_PARA.Game.CubeSendRecord);
             SaveAllCubepoint(cubePointsList);
             Debug.Log("游戏结束");
+            resultcanvas.SetActive(true);
             Application.Quit();
             //SceneManager.LoadScene("GameEnd");
         }
@@ -98,7 +101,7 @@ public class CreateCube : MonoBehaviour {
         //}
 
         //根据时间队列中的时间进行生成，先看队首的时间点是不是生成的时间点
-        while (beatTime.Count > 0 && Time.time >= beatTime.Peek())
+        while (beatTime.Count > 0 && (Time.time-collapseTime) >= beatTime.Peek())
         {
             if (!IS_PLAYING)
             {
@@ -111,6 +114,7 @@ public class CreateCube : MonoBehaviour {
             GameObject objPre = Resources.Load<GameObject>("Cube/" + ((GLOBAL_PARA.CubeType)cubeTypes.Dequeue()).ToString());
             Cube.speed = (9.6f - theZPosition) / (120f / (float)songInfo.bPM);
             Instantiate(objPre, position, objPre.transform.rotation);
+            GLOBAL_PARA.Game.CubeSendRecord++;
         }
     }
 
