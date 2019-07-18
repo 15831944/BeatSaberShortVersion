@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5adea5ff85a2785448d2ec6f0d67ae3f
+guid: d8abb15e38d377c40ac92aedb3317292
 TextureImporter:
   fileIDToRecycleName:
     21300000: pause_play_stop_black_0
@@ -88,7 +88,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 
+      spriteID: 41f8bcda827061844bbf06c92d2cc058
       vertices: []
       indices: 
       edges: []
@@ -108,7 +108,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 
+      spriteID: 8ac5b0d8b5c3a2c449718fcc6c685d46
       vertices: []
       indices: 
       edges: []
@@ -128,7 +128,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 
+      spriteID: 5cb3f5c226a95844cb583bc5ae8bbaa8
       vertices: []
       indices: 
       edges: []
