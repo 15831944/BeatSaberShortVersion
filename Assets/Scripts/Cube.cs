@@ -17,7 +17,7 @@ public class Cube : MonoBehaviour {
 
 	void Update () {
         //判断物体是不是过了视界了，过了就销毁
-        if (this.gameObject.transform.position.z >= cameraZPosition)
+        if (this.gameObject.transform.position.z >= CreateCube.cameraZPosition+1)
         {
             Destroy(gameObject);
         }
