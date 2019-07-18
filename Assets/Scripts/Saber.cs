@@ -68,7 +68,7 @@ public class Saber : MonoBehaviour {
             GLOBAL_PARA.Game.CutCorrect();
             AudioSource.PlayClipAtPoint(correctTrriger, victim.transform.position);
 
-            Debug.Log(victim.transform.position.z);
+            //Debug.Log(victim.transform.position.z);
 
             //VRTK震动反馈
             VRTK_ControllerHaptics.TriggerHapticPulse(VRTK_ControllerReference.GetControllerReference(transform.parent.gameObject), hapticForce);
@@ -98,13 +98,35 @@ public class Saber : MonoBehaviour {
         //优化切割，避免切割边角
         Vector3 cutPoint = (cube.transform.position + collision.contacts[0].point) / 2;
 
-        GameObject[] pieces = BLINDED_AM_ME.MeshCut.Cut(cube, cutPoint, new Vector3(direction.y, -direction.x, 0), capMaterial);
+        GameObject[] pieces = BLINDED_AM_ME.MeshCut.Cut(cube, cutPoint, new Vector3(direction.y, -direction.x, 0), new Material(capMaterial));
 
         if (!pieces[1].GetComponent<Rigidbody>())
             pieces[1].AddComponent<Rigidbody>();
+        pieces[0].GetComponent<Rigidbody>().useGravity = true;
 
-        Destroy(pieces[0], 1);
-        Destroy(pieces[1], 1);
+        switch (GetHitFrom(cube.transform.position, collision.contacts[0].point))
+        {
+            case GLOBAL_PARA.HitPoint.RIGHT:
+                pieces[1].GetComponent<Rigidbody>().AddForce(new Vector3(0, 5f) ,ForceMode.Impulse);
+                break;
+
+            case GLOBAL_PARA.HitPoint.LEFT:
+                pieces[0].GetComponent<Rigidbody>().AddForce(new Vector3(0, 5f), ForceMode.Impulse);
+                break;
+
+            case GLOBAL_PARA.HitPoint.UP:
+                pieces[0].GetComponent<Rigidbody>().AddForce(new Vector3(3f, 0), ForceMode.Impulse);
+                pieces[1].GetComponent<Rigidbody>().AddForce(new Vector3(-3f, 0), ForceMode.Impulse);
+                break;
+
+            case GLOBAL_PARA.HitPoint.DOWN:
+                pieces[0].GetComponent<Rigidbody>().AddForce(new Vector3(-3f, 0), ForceMode.Impulse);
+                pieces[1].GetComponent<Rigidbody>().AddForce(new Vector3(3f, 0), ForceMode.Impulse);
+                break;
+        }
+
+        pieces[0].GetComponent<CubeDissolve>().enabled = true;
+        pieces[1].AddComponent<CubeDissolve>();
     }
 
     /// <summary>
