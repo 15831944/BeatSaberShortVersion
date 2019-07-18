@@ -153,14 +153,14 @@ public class Saber : MonoBehaviour {
         {
             case GLOBAL_PARA.HitPoint.LEFT:
                 //上侧方块向上弹开
-                pieces[1].GetComponent<Rigidbody>().AddForce(new Vector3(0, 5f), ForceMode.Impulse);
+                pieces[1].GetComponent<Rigidbody>().AddForce(new Vector3(0, 3f), ForceMode.Impulse);
                 //找到切割面的中心点
                 sparkPosition = new Vector3(centerPoint.x, colPoint.y + (centerPoint.x - colPoint.x) * direction.y / direction.x, centerPoint.z);
                 break;
 
             case GLOBAL_PARA.HitPoint.RIGHT:
                 //上侧方块向上弹开
-                pieces[0].GetComponent<Rigidbody>().AddForce(new Vector3(0, 5f), ForceMode.Impulse);
+                pieces[0].GetComponent<Rigidbody>().AddForce(new Vector3(0, 3f), ForceMode.Impulse);
                 //找到切割面的中心点
                 sparkPosition = new Vector3(centerPoint.x, colPoint.y + (centerPoint.x - colPoint.x) * direction.y / direction.x, centerPoint.z);
 
@@ -168,9 +168,9 @@ public class Saber : MonoBehaviour {
 
             case GLOBAL_PARA.HitPoint.DOWN:
                 //右侧方块向右弹开
-                pieces[0].GetComponent<Rigidbody>().AddForce(new Vector3(3f, 0), ForceMode.Impulse);
+                pieces[0].GetComponent<Rigidbody>().AddForce(new Vector3(0.8f, 0), ForceMode.Impulse);
                 //左侧方块向左弹开
-                pieces[1].GetComponent<Rigidbody>().AddForce(new Vector3(-3f, 0), ForceMode.Impulse);
+                pieces[1].GetComponent<Rigidbody>().AddForce(new Vector3(-0.8f, 0), ForceMode.Impulse);
                 //找到切割面的中心点
                 sparkPosition = new Vector3(colPoint.x + (centerPoint.y - colPoint.y) * direction.x / direction.y, centerPoint.y,centerPoint.z);
 
@@ -178,9 +178,9 @@ public class Saber : MonoBehaviour {
 
             case GLOBAL_PARA.HitPoint.UP:
                 //左侧方块向左弹开
-                pieces[0].GetComponent<Rigidbody>().AddForce(new Vector3(-3f, 0), ForceMode.Impulse);
+                pieces[0].GetComponent<Rigidbody>().AddForce(new Vector3(-0.8f, 0), ForceMode.Impulse);
                 //右侧方块向右弹开
-                pieces[1].GetComponent<Rigidbody>().AddForce(new Vector3(3f, 0), ForceMode.Impulse);
+                pieces[1].GetComponent<Rigidbody>().AddForce(new Vector3(0.8f, 0), ForceMode.Impulse);
                 //找到切割面的中心点
                 sparkPosition = new Vector3(colPoint.x + (centerPoint.y - colPoint.y) * direction.x / direction.y, centerPoint.y, centerPoint.z);
 
@@ -235,27 +235,28 @@ public class Saber : MonoBehaviour {
         float deltaX = hitPoint.x - centerPoint.x;
         float deltaY = hitPoint.y - centerPoint.y;
 
+        //朝向-z方向，左右方向相反
         if( deltaX >= 0 && deltaY >= 0)
         {
-            if (deltaX > deltaY) return GLOBAL_PARA.HitPoint.RIGHT;
+            if (deltaX > deltaY) return GLOBAL_PARA.HitPoint.LEFT;
             else return GLOBAL_PARA.HitPoint.UP;
         }
 
         if (deltaX >= 0 && deltaY <= 0)
         {
-            if (deltaX > -deltaY) return GLOBAL_PARA.HitPoint.RIGHT;
+            if (deltaX > -deltaY) return GLOBAL_PARA.HitPoint.LEFT;
             else return GLOBAL_PARA.HitPoint.DOWN;
         }
 
         if( deltaX <= 0 && deltaY >= 0)
         {
-            if (-deltaX > deltaY) return GLOBAL_PARA.HitPoint.LEFT;
+            if (-deltaX > deltaY) return GLOBAL_PARA.HitPoint.RIGHT;
             else return GLOBAL_PARA.HitPoint.UP;
         }
 
         if(deltaX <= 0 && deltaY <= 0 )
         {
-            if (-deltaX > -deltaY) return GLOBAL_PARA.HitPoint.LEFT;
+            if (-deltaX > -deltaY) return GLOBAL_PARA.HitPoint.RIGHT;
             else return GLOBAL_PARA.HitPoint.DOWN;
         }
 

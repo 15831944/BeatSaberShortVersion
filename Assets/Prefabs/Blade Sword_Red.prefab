@@ -198,7 +198,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1526879939646496}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1, y: -0.1, z: 0.59}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0.557}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4400044042018722}
@@ -608,7 +608,7 @@ MonoBehaviour:
   saberSpark: {fileID: 1450430947895814}
   cutSpark: {fileID: 1419433360747954, guid: 5926388b7f23bb44489a02125b4180a7, type: 2}
   color: 0
-  hapticForce: 100
+  hapticForce: 500
 --- !u!136 &136082999556933314
 CapsuleCollider:
   m_ObjectHideFlags: 1

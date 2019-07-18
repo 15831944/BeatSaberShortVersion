@@ -6,8 +6,8 @@ public class CubeDissolve : MonoBehaviour {
 
     // Use this for initialization
 
-    private float minValue = -0.6f;
-    private float maxValue = 2f;
+    private float minValue = 4f;
+    private float maxValue = 7f;
     private float fill = 0f;
     private float second = 0.7f;
     private float delay = 0.3f;

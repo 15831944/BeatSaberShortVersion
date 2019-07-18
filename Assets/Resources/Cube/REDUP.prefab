@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114766098906945112}
   - component: {fileID: 65109325999282864}
   - component: {fileID: 54335599918388390}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: REDUP
   m_TagString: Untagged
   m_Icon: {fileID: 0}

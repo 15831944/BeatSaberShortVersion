@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114972050918039728}
   - component: {fileID: 65045195854948576}
   - component: {fileID: 54010616249986342}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: REDDOWN
   m_TagString: Untagged
   m_Icon: {fileID: 0}

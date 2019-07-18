@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114397195516995682}
   - component: {fileID: 54687925348479062}
   - component: {fileID: 65181390040196390}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BLUEUP
   m_TagString: Untagged
   m_Icon: {fileID: 0}

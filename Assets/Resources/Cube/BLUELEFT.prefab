@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114610144495016410}
   - component: {fileID: 54333242628111586}
   - component: {fileID: 65058818664125926}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BLUELEFT
   m_TagString: Untagged
   m_Icon: {fileID: 0}

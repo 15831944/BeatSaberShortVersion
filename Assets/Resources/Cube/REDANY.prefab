@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65094966548410570}
   - component: {fileID: 54792738604367630}
   - component: {fileID: 114355681405341248}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: REDANY
   m_TagString: Untagged
   m_Icon: {fileID: 0}

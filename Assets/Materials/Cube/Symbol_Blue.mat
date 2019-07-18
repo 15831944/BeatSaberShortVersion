@@ -100,7 +100,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _Enablerimlight: 1
-    - _Fill: 2
+    - _Fill: 6
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -108,7 +108,7 @@ Material:
     - _Layernoise: 1
     - _Metallic: 0
     - _Mode: 0
-    - _Noisescale: 10
+    - _Noisescale: 20
     - _Noisetexopacity: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
