@@ -12,13 +12,6 @@ public class Cube : MonoBehaviour {
     public GLOBAL_PARA.HitPoint hitPoint;
 
 	void Start () {
-        Material[] materials = gameObject.GetComponent<Renderer>().materials;
-        for (int i = 0; i < materials.Length; i++)
-        {
-            gameObject.GetComponent<Renderer>().materials[i] = new Material(materials[i]);
-        }
-
-        //speed = (CreateCube.cameraZPosition - CreateCube.cubeZPosition) / CreateCube.halfBeat;
     }
 
 	void Update () {
