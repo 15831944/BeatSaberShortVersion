@@ -9,7 +9,7 @@ public class CubeDissolve : MonoBehaviour {
     private float minValue = -0.6f;
     private float maxValue = 2f;
     private float fill = 0f;
-    private float second = 0.5f;
+    private float second = 0.7f;
     private float delay = 0.3f;
     private Material[] mats;
 
@@ -29,7 +29,7 @@ public class CubeDissolve : MonoBehaviour {
             fill -= (maxValue - minValue) / (60 * second);
             setValue();
         }
-        if (fill < minValue) Destroy(gameObject);
+        if (fill < minValue) Destroy(gameObject,0.3f);
     }
 
     private void setValue() {
