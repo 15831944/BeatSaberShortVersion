@@ -22,6 +22,7 @@ public class backMenu : MonoBehaviour {
         SteamVR_Controller.Device device = SteamVR_Controller.Input((int)trackdeObjec.index);
         if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger))//按下扳机
         {
+            GameObject.Find("Camera (eye)").GetComponent<AudioSource>().Stop();
             SceneManager.LoadScene("Menu");
         }
   

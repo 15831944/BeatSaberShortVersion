@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
+using System;
 
 namespace GLOBAL_PARA
 {
-
+    
     public enum CubeType
     {
         REDUP = 0,
@@ -19,13 +20,38 @@ namespace GLOBAL_PARA
         REDANY = 8,
         BLUEANY = 9,
     }
+    public class LogoutInfo
+    {
+        public int PlayerID;
+        public LogoutInfo()
+        {
+            this.PlayerID = GLOBAL_PARA.Game.PlayerID;
+        }
+    }
 
+    public class GameRecord
+    {
+        public int PlayerID { get; set; }
+        public int MusicID { get; set; }
+        public float Score { get; set; }
+        public float Progress { get; set; }
+        public string RecordTime { get; set; }
+        public GameRecord(int playerID,int musicID,float score,float progress,DateTime dateTime)
+        {
+            this.PlayerID = playerID;
+            this.MusicID = musicID;
+            this.Score = score;
+            this.Progress = progress;
+            this.RecordTime = DateTime.Now.GetDateTimeFormats('s')[0].ToString().Replace("T", " ");
+        }
+    }
     public class Global
     {
 
     }
     public class Game
     {
+        public static int PlayerID;
         /// <summary>
         /// CubeHeatRecord记录被正确击中的物体的数量
         /// </summary>
@@ -112,6 +138,7 @@ namespace GLOBAL_PARA
             WhateverItTakes = 121,//296
             TikTok = 120,//246
             TroubleMaker = 115,//263
+            Believer = 125,
         }
 
         public string songName { set; get; }

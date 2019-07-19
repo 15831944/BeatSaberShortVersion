@@ -8,6 +8,8 @@ using System.IO;
 using Newtonsoft.Json.Linq;
 using System;
 using Random = UnityEngine.Random;
+using UnityEngine.Networking;
+using System.Text;
 
 public class CreateCube : MonoBehaviour {
     public GameObject resultcanvas;
@@ -15,8 +17,12 @@ public class CreateCube : MonoBehaviour {
     public static float cubeZPosition  = -10.75f;//存放方块生成的位置的Z坐标，用于配合计算速度
     private float timerOne = 0f;//计时器
     public static GLOBAL_PARA.SongInfo songInfo ;
+    public static GLOBAL_PARA.SongInfo.SONG songName = GLOBAL_PARA.SongInfo.SONG.AllFallsDown;
     private bool IS_PLAYING = false;
     private float collapseTime = 0;
+    private string logoutUrl = "http://www.hustimis.cn:8014/Log.svc/Logout";
+    private string gameRecordUrl = "http://www.hustimis.cn:8014/Statistics.svc/UploadScore";
+    private float delayTime = 1f;
     /// <summary>
     /// 歌曲的BPM的1/2，可以根据不同的难度设置不同的比值
     /// </summary>
@@ -27,11 +33,37 @@ public class CreateCube : MonoBehaviour {
     private Queue<float> yPosition = new Queue<float>();//对应的生成位置的Y坐标队列
     private Queue<float> zPosition = new Queue<float>();//对应的生成位置的Z坐标队列
     private List<GLOBAL_PARA.CubePoint> cubePointsList= new List<GLOBAL_PARA.CubePoint>();
+
+    IEnumerator POSTDATA(string url,string data)
+    {
+        var request = new UnityWebRequest(url,"POST");
+        byte[] dataPost = Encoding.UTF8.GetBytes(data);
+        request.uploadHandler = (UploadHandler)new UploadHandlerRaw(dataPost);
+        request.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+        request.timeout = 7;
+        yield return request.SendWebRequest();
+        if (request.isHttpError || request.isNetworkError)
+        {
+            Debug.Log(request.error);
+        }
+        while (!request.isDone) { }
+        Debug.Log("Result: " + request.downloadHandler.text);
+    }
+
 	void Start () {
         collapseTime = Time.time;
         Debug.Log("Here");
-        songInfo = new GLOBAL_PARA.SongInfo(GLOBAL_PARA.SongInfo.SONG.AllFallsDown);
+        songInfo = new GLOBAL_PARA.SongInfo(songName);
         AudioClip audioClip = Resources.Load<AudioClip>("Song/"+songInfo.songName);
+        if(songName == GLOBAL_PARA.SongInfo.SONG.AllFallsDown)
+        {
+            delayTime = 60 / songInfo.bPM;
+        }
+        if(songName == GLOBAL_PARA.SongInfo.SONG.Believer)
+        {
+            delayTime = 0.84f;
+        }
         this.GetComponent<AudioSource>().clip = audioClip;
         this.GetComponent<AudioSource>().Play();
         //确定摄像机的位置，调整方块生成位置
@@ -52,12 +84,15 @@ public class CreateCube : MonoBehaviour {
         //音乐结束后的处理，当作游戏结束的标志。
         if (!this.GetComponent<AudioSource>().isPlaying)
         {
-            Debug.Log("Length of List: "+cubePointsList.Count.ToString());
-            Debug.Log("Count: "+GLOBAL_PARA.Game.CubeSendRecord);
-            SaveAllCubepoint(cubePointsList);
-            Debug.Log("游戏结束");
+            //Debug.Log("Length of List: "+cubePointsList.Count.ToString());
+            //Debug.Log("Count: "+GLOBAL_PARA.Game.CubeSendRecord);
+            //SaveAllCubepoint(cubePointsList);
+            //Debug.Log("游戏结束");
             resultcanvas.SetActive(true);
-            Application.Quit();
+            string gameData = JsonConvert.SerializeObject(new GLOBAL_PARA.GameRecord(GLOBAL_PARA.Game.PlayerID, 1, GLOBAL_PARA.Game.CountScore(), GLOBAL_PARA.Game.GetHeatPercent(), DateTime.Now));
+            Debug.Log("UPloadData: " + gameData);
+            StartCoroutine(POSTDATA(gameRecordUrl, gameData));
+            //Application.Quit();
             //SceneManager.LoadScene("GameEnd");
         }
 
@@ -103,7 +138,7 @@ public class CreateCube : MonoBehaviour {
         //根据时间队列中的时间进行生成，先看队首的时间点是不是生成的时间点
         while (beatTime.Count > 0 && (Time.time-collapseTime) >= beatTime.Peek())
         {
-            if (!IS_PLAYING)
+            if (!IS_PLAYING && Time.time-collapseTime>=delayTime)
             {
                 this.GetComponent<AudioSource>().Play();
                 IS_PLAYING = true;
@@ -171,7 +206,7 @@ public class CreateCube : MonoBehaviour {
     public List<GLOBAL_PARA.CubePoint> LoadAllCubePoints()
     {
         //读取文件
-        StreamReader streamReader = new StreamReader(Application.dataPath + @"/Data/" + songInfo.songName + ".json");
+        StreamReader streamReader = new StreamReader(Application.dataPath + @"/Resources/Data/" + songInfo.songName + ".json");
         JsonSerializer serializer = new JsonSerializer();
         //设置忽略空值
         serializer.NullValueHandling = NullValueHandling.Ignore;

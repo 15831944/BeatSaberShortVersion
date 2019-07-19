@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.IO;
 
 public class bl_BackGround : MonoBehaviour {
 
@@ -25,6 +26,17 @@ public class bl_BackGround : MonoBehaviour {
     void Awake()
     {
         StartCoroutine(FirtsFade());
+        FileStream fileStream = new FileStream("config.txt", FileMode.Open);
+        StreamReader streamReader = new StreamReader(fileStream);
+        streamReader.BaseStream.Seek(0, SeekOrigin.Begin);
+        string strLine = streamReader.ReadLine();
+
+        GLOBAL_PARA.Game.PlayerID = int.Parse(strLine.Substring(strLine.Length - 2, 1));
+        Debug.Log("ID: " + GLOBAL_PARA.Game.PlayerID.ToString());
+        streamReader.Close();
+        streamReader.Dispose();
+        fileStream.Close();
+        fileStream.Dispose();
     }
     /// <summary>
     /// 

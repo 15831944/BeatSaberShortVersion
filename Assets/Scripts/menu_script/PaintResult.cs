@@ -29,53 +29,81 @@ public class PaintResult : MonoBehaviour {
         //设置歌曲名称
         SongnameText.GetComponent<Text>().text = CreateCube.songInfo.songName;
         //设置星星的样式
-        if (HeatPercent > 0)
+        if (HeatPercent > 0 && HeatPercent <= 20)
         {
+
             //点亮第一颗星
             star1.GetComponent<Image>().sprite = Star;
-            if(HeatPercent >= 20)
-            {
-                //点亮第二颗星
-                star2.GetComponent<Image>().sprite = Star;
-                if (HeatPercent >= 40)
-                {
-                    //点亮第三颗星
-                    star3.GetComponent<Image>().sprite = Star;
-                    if (HeatPercent >= 60)
-                    {
-                        //点亮第四颗星
-                        star4.GetComponent<Image>().sprite = Star;
-                        if (HeatPercent >= 80)
-                        {
-                            //点亮第五颗星
-                            star5.GetComponent<Image>().sprite = Star;
-                        }
-                        else
-                        {
-                            star5.GetComponent<Image>().sprite = StarBack;
-                        }
-                    }
-                    else
-                    {
-                        star4.GetComponent<Image>().sprite = StarBack;
-                    }
-                }
-                else
-                {
-                    star3.GetComponent<Image>().sprite = StarBack;
-                }
-            }
-            else
-            {
-                star2.GetComponent<Image>().sprite = StarBack;
-            }
+            //点亮第二颗星
+            star2.GetComponent<Image>().sprite = StarBack;
+            //点亮第三颗星
+            star3.GetComponent<Image>().sprite = StarBack;
+            //点亮第四颗星
+            star4.GetComponent<Image>().sprite = StarBack;
+            //点亮第五颗星
+            star5.GetComponent<Image>().sprite = StarBack;
+
         }
-        else
+        if (HeatPercent > 20 && HeatPercent <= 40)
         {
-            star1.GetComponent<Image>().sprite = StarBack;
+
+            //点亮第一颗星
+            star1.GetComponent<Image>().sprite = Star;
+            //点亮第二颗星
+            star2.GetComponent<Image>().sprite = Star;
+            //点亮第三颗星
+            star3.GetComponent<Image>().sprite = StarBack;
+            //点亮第四颗星
+            star4.GetComponent<Image>().sprite = StarBack;
+            //点亮第五颗星
+            star5.GetComponent<Image>().sprite = StarBack;
+
         }
+        if (HeatPercent > 40 && HeatPercent <= 60)
+        {
 
+            //点亮第一颗星
+            star1.GetComponent<Image>().sprite = Star;
+            //点亮第二颗星
+            star2.GetComponent<Image>().sprite = Star;
+            //点亮第三颗星
+            star3.GetComponent<Image>().sprite = Star;
+            //点亮第四颗星
+            star4.GetComponent<Image>().sprite = StarBack;
+            //点亮第五颗星
+            star5.GetComponent<Image>().sprite = StarBack;
 
+        }
+        if (HeatPercent > 60 && HeatPercent <= 80)
+        {
+
+            //点亮第一颗星
+            star1.GetComponent<Image>().sprite = Star;
+            //点亮第二颗星
+            star2.GetComponent<Image>().sprite = Star;
+            //点亮第三颗星
+            star3.GetComponent<Image>().sprite = Star;
+            //点亮第四颗星
+            star4.GetComponent<Image>().sprite = Star;
+            //点亮第五颗星
+            star5.GetComponent<Image>().sprite = StarBack;
+
+        }
+        if (HeatPercent > 80)
+        {
+
+            //点亮第一颗星
+            star1.GetComponent<Image>().sprite = Star;
+            //点亮第二颗星
+            star2.GetComponent<Image>().sprite = Star;
+            //点亮第三颗星
+            star3.GetComponent<Image>().sprite = Star;
+            //点亮第四颗星
+            star4.GetComponent<Image>().sprite = Star;
+            //点亮第五颗星
+            star5.GetComponent<Image>().sprite = Star;
+
+        }
     }
 	
 	// Update is called once per frame
